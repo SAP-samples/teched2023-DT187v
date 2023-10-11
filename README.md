@@ -1,20 +1,40 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2023-DT187v)](https://api.reuse.software/info/github.com/SAP-samples/teched2023-DT187v)
 
-# Session ID - Session Title
+# DT187v - Build Analytical Applications with ABAP Cloud
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2022 session called Session ID - Session Title.  
+This repository contains the material for the SAP TechEd 2023 session called DT187v - Build Analytical Applications with ABAP Cloud.
+
 
 ## Overview
 
-This session introduces attendees to...
+This hands-on session introduces attendees to building an analytical data model with ABAP Cloud that can be consumed by analytical applications like e.g., SAP Analytics Cloud. You will learn how to build analytical applications with the ABAP Cloud programming language using ABAP core data services, analytical providers, and business services in the ABAP development tools. ABAP Cloud is the common development model for building cloud-ready business applications, services, and extensions side by side on SAP BTP, ABAP environment and on-stack on SAP S/4HANA, in the cloud and on premise. Gain information, ask questions, and then complete the exercises at your own pace.
+
 
 ## Requirements
 
-The requirements to follow the exercises in this repository are...
+The requirements to follow the exercises in this repository are that you:
+1) get a new trial account for the BTP ABAP environment (please make sure to get a new one if your account is older than XXXXXX)
+2) have the latest version of the ABAP development tools installed
+3) have downloaded and installed the templates for analytical CDS views
+
 
 ## Exercises
+
+Fulfill the prerequisites
+
+Get to know your data and plan your analytical model
+
+Build the heart of the model - the Cube
+
+Build Dimensions
+
+Build a Hierarchy to be used in a Dimension
+
+Prepare your analytical UI by building a Query
+
+Preview the Query in a Multi-Dimensional way
 
 Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
 
@@ -26,14 +46,8 @@ Provide the exercise content here directly in README.md using [markdown](https:/
     - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
     - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
 
-  
-**OR** Link to the Tutorial Navigator for example...
-
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
 
 **IMPORTANT**
-
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
