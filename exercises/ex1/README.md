@@ -12,7 +12,14 @@ The trial systgems have been updated for the TechEd 2023 sessions!
 
 ## Embedded Analytics in ABAP Cloud
 
+Before we start, let's understand how Analytics is embedded in ABAP Cloud. 
 <br>![](/exercises/ex1/images/01-EmbeddedAnalyticsInABAPCloud.png)
+1. SAP HANAs column store is vital for analytical data processing
+2. Analytical data modelling is done ABAP Cloud style via ABAP CDS entities
+3. Service Exposure via the multi-dimensional InA protocol is included in ABAP Cloud
+4. The developer tooling needed for Analytics is included in the ABAP development tools
+5. Analytical Fiori UIs that are part of ABAP Cloud are in preparation
+6. SAP Analytics Cloud "SAC" can be used as client with multi-dimensional capabilities
 
 ## Scope of the Tutorial
 
