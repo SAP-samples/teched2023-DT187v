@@ -1,44 +1,38 @@
-# Exercise 1 - Exercise 1 Description
+# Exercise 1 - Introduction to Analytics in ABAP Cloud
 
-In this exercise, we will create...
+In this exercise, you will understand what embedded analytics in ABAP Cloud is all about.
+Also, you will get to know the FLIGHT data model you will be working with.
 
-## Exercise 1.1 Sub Exercise 1 Description
+## Prerequisites
 
-After completing these steps you will have created...
+Make sure you have completed the prerequisites:
+* 
+* 
 
-1. Click here.
-<br>![](/exercises/ex1/images/01_01_0010.png)
+## Embedded Analytics
 
-2.	Insert this line of code.
-```abap
-response->set_text( |Hello World! | ). 
-```
+## Analytical Basiscs
 
+## The FLIGHT Data Model
 
+After completing these steps you will have an understanding about how you can use the FLIGHT model as the basis for analytical data model according to the STAR SCHEMA.
 
-## Exercise 1.2 Sub Exercise 2 Description
+1.	Open ABAP Development Tools and open your project.
+2.	Use the 
+<br>![](/exercises/ex0/images/00_00_0010.png)
 
-After completing these steps you will have...
-
-1.	Enter this code.
-```abap
-DATA(lt_params) = request->get_form_fields(  ).
-READ TABLE lt_params REFERENCE INTO DATA(lr_params) WITH KEY name = 'cmd'.
+3.	Insert this code.
+``` abap
+ DATA(params) = request->get_form_fields(  ).
+ READ TABLE params REFERENCE INTO DATA(param) WITH KEY name = 'cmd'.
   IF sy-subrc <> 0.
     response->set_status( i_code = 400
                      i_reason = 'Bad request').
     RETURN.
   ENDIF.
-
 ```
-
-2.	Click here.
-<br>![](/exercises/ex1/images/01_02_0010.png)
-
 
 ## Summary
 
-You've now ...
-
-Continue to - [Exercise 2 - Exercise 2 Description](../ex2/README.md)
-
+Now that you have analysed the FLIGHT data model, you know which elements are needed to start building your first analytical entity: The cube.
+Continue to - [Exercise 1 - Build a Cube](../ex1/README.md)
