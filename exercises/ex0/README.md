@@ -1,38 +1,17 @@
-# Introduction to Analytics in ABAP Cloud
+# Create an SAP BTP ABAP Environment Trial User
 
-In this exercise, you will understand what embedded analytics in ABAP Cloud is all about.
-Also, you will get to know the FLIGHT data model you will be working with.
+In this exercise, you will create a trial user in the SAP BTP, ABAP Environment. 
 
-## Prerequisites
+## SAP BTP Trial Account
 
-Make sure you have completed the prerequisites:
-* 
-* 
+If you have not already done so you have first to register for the SAP BTP Trial [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
 
-## Embedded Analytics
+## ABAP Environment in SAP BTP Trial
 
-## Analytical Basiscs
+The steps you you to activate the ABAP Environment in the SAP BTP trial by creating an appropriate user have have been described in the following tutorial.
 
-## The FLIGHT Data Model
-
-After completing these steps you will have an understanding about how you can use the FLIGHT model as the basis for analytical data model according to the STAR SCHEMA.
-
-1.	Open ABAP Development Tools and open your project.
-2.	Use the 
-<br>![](/exercises/ex0/images/00_00_0010.png)
-
-3.	Insert this code.
-``` abap
- DATA(params) = request->get_form_fields(  ).
- READ TABLE params REFERENCE INTO DATA(param) WITH KEY name = 'cmd'.
-  IF sy-subrc <> 0.
-    response->set_status( i_code = 400
-                     i_reason = 'Bad request').
-    RETURN.
-  ENDIF.
-```
+[Create an SAP BTP ABAP Environment Trial User](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html)
 
 ## Summary
 
-Now that you have analysed the FLIGHT data model, you know which elements are needed to start building your first analytical entity: The cube.
-Continue to - [Exercise 1 - Build a Cube](../ex1/README.md)
+Now that you have onboarded to the SAP BTP Trial, ABAP Environment you can continue to - [Exercise 1 - Exercise 1 Description](../ex1/README.md)
