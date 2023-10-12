@@ -5,11 +5,18 @@ Also, you will get to know the FLIGHT data model you will be working with.
 
 ## Prerequisites
 
-Make sure you have completed the prerequisites:
-* 
-* 
+Make sure you have completed the prerequisites from [Exercise 0 - Get an ABAP Environment Trial](../ex0/README.md).
 
-## Embedded Analytics
+Even if you already have an ABAP Environment Trial, make sure to get a new one.
+The trial systgems have been updated for the TechEd 2023 sessions!
+
+## Embedded Analytics in ABAP Cloud
+
+<br>![](/exercises/ex1/images/01-EmbeddedAnalyticsInABAPCloud.png)
+
+## Scope of the Tutorial
+
+<br>![](/exercises/ex1/images/02-HandsOnScope.png)
 
 ## Analytical Basiscs
 
@@ -18,10 +25,12 @@ Make sure you have completed the prerequisites:
 After completing these steps you will have an understanding about how you can use the FLIGHT model as the basis for analytical data model according to the STAR SCHEMA.
 
 1.	Open ABAP Development Tools and open your project.
-2.	Use the 
+2.	Use the "Open Development Object" button to open the "/DMO/I_Flight" CDS View.
+<br>![](/exercises/ex1/images/03-ADTDemoFlight.png)
+3.	Use the 
 <br>![](/exercises/ex0/images/00_00_0010.png)
 
-3.	Insert this code.
+4.	Insert this code.
 ``` abap
  DATA(params) = request->get_form_fields(  ).
  READ TABLE params REFERENCE INTO DATA(param) WITH KEY name = 'cmd'.
@@ -35,4 +44,4 @@ After completing these steps you will have an understanding about how you can us
 ## Summary
 
 Now that you have analysed the FLIGHT data model, you know which elements are needed to start building your first analytical entity: The cube.
-Continue to - [Exercise 1 - Build a Cube](../ex1/README.md)
+Continue to - [Exercise 2 - Build a Cube](../ex2/README.md)
