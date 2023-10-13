@@ -9,9 +9,9 @@ Make sure you have completed the prerequisites from [Exercise 0 - Get an ABAP En
 
 Even if you already have an ABAP Environment Trial, **please get a new instance** as the trial systems have been updated for the TechEd 2023 sessions!
 
-## Embedded Analytics in ABAP Cloud
+## Read: Embedded Analytics in ABAP Cloud
 
-[Skip the reading and start the hands-on](#the-flight-data-model)
+TLDR: [Skip the reading and start the hands-on](#the-flight-data-model)
 
 Let's understand how Analytics is embedded in ABAP Cloud. 
 <br>![](/exercises/ex1/images/01-EmbeddedAnalyticsInABAPCloud.png)
@@ -22,7 +22,9 @@ Let's understand how Analytics is embedded in ABAP Cloud.
 5. Analytical Fiori UIs that are part of ABAP Cloud are in preparation
 6. SAP Analytics Cloud "SAC" can be used as client with multi-dimensional capabilities
 
-## Scope of the Tutorial
+## Read: Scope of the Tutorial
+
+TLDR: [Skip the reading and start the hands-on](#the-flight-data-model)
 
 What you will do in the course of this Hands-On session is focussed on the lower level of this diagram:
 
@@ -35,7 +37,7 @@ What you will do in the course of this Hands-On session is focussed on the lower
 **CLIENTS:** To give an impression of how a multi-dimensional client works, we enabled the multi-dimensional preview on the query in the trial system for you. We will use this preview to visualise the model that you built in the same way as it would be possible with an analytical end uer application. We will also link to addition material on how to consume the query in SAP Analytics Cloud.
 
 
-## The FLIGHT Data Model
+## Hands-OnThe FLIGHT Data Model
 
 In the hands-on, we will use the SAP Flight Model. The mission will be to analyse the occupation rate of flights.
 After completing these steps you will have an understanding about how you can use the FLIGHT model as the basis for analytical data model according to the STAR SCHEMA.
