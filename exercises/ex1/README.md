@@ -12,7 +12,7 @@ The trial systgems have been updated for the TechEd 2023 sessions!
 
 ## Embedded Analytics in ABAP Cloud
 
-Before we start, let's understand how Analytics is embedded in ABAP Cloud. 
+Let's understand how Analytics is embedded in ABAP Cloud. 
 <br>![](/exercises/ex1/images/01-EmbeddedAnalyticsInABAPCloud.png)
 1. SAP HANAs column store is vital for analytical data processing
 2. Analytical data modelling is done ABAP Cloud style via ABAP CDS entities
@@ -23,9 +23,17 @@ Before we start, let's understand how Analytics is embedded in ABAP Cloud.
 
 ## Scope of the Tutorial
 
+What you will do in the course of this Hands-On session is focussed on the lower level of this diagram:
 <br>![](/exercises/ex1/images/02-HandsOnScope.png)
+You will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube.
+The Service Exposure part can also be done in the trial systems, but unfortunately, we do not have multi-dimensional clients yet available as part of the trial experience.
+That you anyhow get an impression of how a multi-dimensional client works, we enabled a multi-dimensional preview on the query in the trial system and will link you to additional material.
+With the preview, you will be able to visualise the model that you built in the same way as it would be possible with an analytical end uer application.
 
 ## Analytical Basiscs
+
+
+
 
 ## The FLIGHT Data Model
 
