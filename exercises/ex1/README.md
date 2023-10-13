@@ -37,10 +37,10 @@ What you will do in the course of this Hands-On session is focussed on the lower
 **CLIENTS:** To give an impression of how a multi-dimensional client works, we enabled the multi-dimensional preview on the query in the trial system for you. We will use this preview to visualise the model that you built in the same way as it would be possible with an analytical end uer application. We will also link to addition material on how to consume the query in SAP Analytics Cloud.
 
 
-## Hands-OnThe FLIGHT Data Model
+## Hands-On: Use the FLIGHT Data Model for Analytics
 
 In the hands-on, we will use the SAP Flight Model. The mission will be to analyse the occupation rate of flights.
-After completing these steps you will have an understanding about how you can use the FLIGHT model as the basis for analytical data model according to the STAR SCHEMA.
+After completing these steps you will have an understanding about how you can use the FLIGHT model as the basis for an analytical data model.
 
 **Step 1)**	Open ABAP Development Tools and open your trial project.
 
