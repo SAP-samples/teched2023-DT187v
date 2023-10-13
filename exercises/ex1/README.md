@@ -25,10 +25,9 @@ Let's understand how Analytics is embedded in ABAP Cloud.
 
 What you will do in the course of this Hands-On session is focussed on the lower level of this diagram:
 <br>![](/exercises/ex1/images/02-HandsOnScope.png)
-You will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube.
-The Service Exposure part can also be done in the trial systems, but unfortunately, we do not have multi-dimensional clients yet available as part of the trial experience.
-That you anyhow get an impression of how a multi-dimensional client works, we enabled a multi-dimensional preview on the query in the trial system and will link you to additional material.
-With the preview, you will be able to visualise the model that you built in the same way as it would be possible with an analytical end uer application.
+You will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube.<br>
+The Service Exposure part can also be done in the trial systems, but we do not have multi-dimensional clients yet available as part of the trial experience, therefore this part of the tutorial is optional.<br>
+That you still get an impression of how a multi-dimensional client works, we enabled the multi-dimensional preview on the query in the trial system. We will use this preview to visualise the model that you built in the same way as it would be possible with an analytical end uer application.<br> 
 
 ## Analytical Basiscs
 
