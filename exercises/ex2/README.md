@@ -64,8 +64,9 @@ Measures in an analytical cube need to be prepared so that an aggregation can ta
 
 **Step 3)** Add the annotation `@Semantics.amount.currencyCode` with the reference to the according currency code field to the price field.
 
-**Step 4)** Add an additional measure that will act as a counter.
-- The calculated field reads `cast (1 as abap.int4) as TotalFlights`
+**Step 4)** Add an additional measure that will act as a counter for the flights.
+- The expression to be used for this is `cast (1 as abap.int4) as TotalFlights`
+- The cast makes sure that the resulting data type is able to count to 2.147.483.647 (without the cast it would have been 256 - a 2 byte integer)
 - Give it a suitable aggregation as well
 
 <details><summary>Hint: Your code should now look like this</summary><p>
@@ -281,10 +282,141 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
 ```
 </p></details>
 
+## Exercise 2.3 - Optional: Add additional Dimensions
+
+The cube that we have prepared now is ready to be used, but we want to add some additional functionality to it in terms of dimensions that we later can aggregate by.
+Even though we have added dimension views that give us access to additional display attributes like the departure or arrival airport of the destination or the month and quarter of the flight date, we would not be able to use these attributes as criteria to aggregate by. Every field that we want to use as aggregation criteria later on has to be an element of the cube view.
+Therefore, we will now use the associations to the dimensions to add those fields directly to the cube.
+
+**Step 1)** Optional: Use the _Connection association to add target and destiantion airport dimensions
+
+**Step 2)** Optional: Create an additional dimension view ZDT187v_[YourInitials]_Airport_Dim.
+- Proceed as described in Exercise 2.1, Step 2 but
+- use the template "Define a View Entity for a Dimension" instead
+- and choose /dmo/airport as the referenced data source
+
+<details><summary>Hint: Your ZDT187v_[YourInitials]_Airport_Dim code should now look like this</summary><p>
+
+```abap
+
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Airport Dimension'
+@Metadata.ignorePropagatedAnnotations: true
+@Analytics.internalName: #LOCAL
+@Analytics.dataCategory: #DIMENSION
+@ObjectModel.representativeKey: 'AirportId'
+
+define view entity ZDT187v_[YourInitials]_Airport_Dim
+  as select from /dmo/airport
+{
+      @ObjectModel.text.element: ['Name']
+  key airport_id as AirportId,
+      name       as Name,
+      city       as City,
+      country    as Country
+}
+
+```
+</p></details>
+
+**Step 3)** Optional: Use the new dimension view in your cube.
+- Add two associations to the new dimension in your cube view
+   - one for the origin airport `as _AirportFrom` 
+   - another one for the destination airport `as _AirportTo`
+- expose both
+- and use them as foreign key reference for the AirportFrom and the AirportTo field  
+
+**Step 3)** Optional:  Use the _Connection association to add the flight distance together with the distance unit.
+- As the distance is an amount with a unit, you need to add `@Semantics.quantity.unitOfMeasure: 'DistanceUnit'` to it
+- as well as a suitable aggregation, e.g. `@Aggregation.default: #MAX`
+
+**Step 4)** Optional:  Use the _FlightDate association to add the flight quarter as well as the flight year.
+- Add a label e.g. `@EndUserText.label: 'Flight Year'` to the field to give it a readable name
+- Explain the analytical engine that the field is a calendar year by setting `@Semantics.calendar.year: true`
+- Finally set the fields in relation to the Flight Date with `@ObjectModel.value.derivedFrom: [ 'FlightDate' ]`
 
 
 ## Summary
 
-You've now ...
+<details><summary>Hint: Your final cube view should now look like this</summary><p>
+
+```abap
+
+@EndUserText.label: 'Flight Cube'
+@Metadata.ignorePropagatedAnnotations: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataCategory: #CUBE
+
+define view entity ZDT187v_[YourInitials]_Flights_Cube
+  as select from /DMO/I_Flight
+  association [0..1] to ZDT187v_[YourInitials]_Airline_Dim    as _Airline     on  _Airline.CarrierId       = $projection.AirlineID
+  association [0..1] to ZDT187v_[YourInitials]_Connection_Dim as _Connection  on  _Connection.CarrierId    = $projection.AirlineID
+                                                                              and _Connection.ConnectionId = $projection.ConnectionID
+  association [0..1] to I_CalendarDate                        as _FlightDate  on  _FlightDate.CalendarDate = $projection.FlightDate
+  association [0..1] to ZDT187v_[YourInitials]_Airport_Dim    as _AirportFrom on  _AirportFrom.AirportId   = $projection.AirportFromId
+  association [0..1] to ZDT187v_[YourInitials]_Airport_Dimn   as _AirportTo   on  _AirportTo.AirportId     = $projection.AirportToId
+{
+      @ObjectModel.foreignKey.association: '_Airline'
+  key AirlineID,
+
+      @ObjectModel.foreignKey.association: '_Connection'
+  key ConnectionID,
+
+      @ObjectModel.foreignKey.association: '_FlightDate'
+  key FlightDate,
+
+      PlaneType,
+
+      @ObjectModel.foreignKey.association: '_AirportFrom'
+      _Connection.AirportFromId,
+
+      @ObjectModel.foreignKey.association: '_AirportTo'
+      _Connection.AirportToId,
+
+      @EndUserText.label: 'Flight Quarter'
+      @Semantics.calendar.yearQuarter: true
+      @ObjectModel.value.derivedFrom: [ 'FlightDate' ]
+      _FlightDate.YearQuarter,
+
+      @EndUserText.label: 'Flight Year'
+      @Semantics.calendar.year: true
+      @ObjectModel.value.derivedFrom: [ 'FlightDate' ]
+      _FlightDate.CalendarYear,
+
+      /* Measures */
+
+      CurrencyCode,
+
+      @Semantics.amount.currencyCode: 'CurrencyCode'
+      @Aggregation.default: #MAX
+      Price,
+
+      @Aggregation.default: #SUM
+      MaximumSeats,
+
+      @Aggregation.default: #SUM
+      OccupiedSeats,
+
+      @Aggregation.default: #SUM
+      cast (1 as abap.int4) as TotalFlights,
+
+      _Connection.DistanceUnit,
+
+      @Semantics.quantity.unitOfMeasure: 'DistanceUnit'
+      @Aggregation.default: #SUM
+      _Connection.Distance,
+
+
+      /* Associations for Dimensions */
+
+      _Airline,
+      _AirportFrom,
+      _AirportTo,
+      _Connection,
+      _Currency
+}
+
+```
+</p></details>
 
 Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
