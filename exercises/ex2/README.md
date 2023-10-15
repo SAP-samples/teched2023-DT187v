@@ -47,8 +47,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube as select from /DMO/I_Flig
 
  /* Associations */
  _Airline,
- _Connection,
- _Currency
+ _Connection
 }
 
 ```
@@ -109,8 +108,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
       /* Associations */
 
       _Airline,
-      _Connection,
-      _Currency
+      _Connection
 }
 
 ```
@@ -286,9 +284,28 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
 
 The cube that we have prepared now is ready to be used, but we want to add some additional functionality to it in terms of dimensions that we later can aggregate by.
 Even though we have added dimension views that give us access to additional display attributes like the departure or arrival airport of the destination or the month and quarter of the flight date, we would not be able to use these attributes as criteria to aggregate by. Every field that we want to use as aggregation criteria later on has to be an element of the cube view.
-Therefore, we will now use the associations to the dimensions to add those fields directly to the cube.
+Therefore, we will now use the associations to the dimensions to add those fields directly to the cube. 
 
-**Step 1)** Optional: Use the _Connection association to add target and destiantion airport dimensions
+If you are in a hurry, continue to - [Exercise 3 - Build a Cube ](../ex3/README.md) as the optional exercise will take some time.
+
+
+**Step 1)** Optional: Use the _Connection association to add target and destiantion airport as dimensions
+
+<details><summary>Hint</summary><p>
+
+```abap
+
+define view entity ZDT187v_[YourInitials]_Flights_Cube
+//...
+{
+      //...
+      _Connection.AirportFromId,
+      _Connection.AirportToId,
+      /...
+}
+
+```
+</p></details>
 
 **Step 2)** Optional: Create an additional dimension view ZDT187v_[YourInitials]_Airport_Dim.
 - Proceed as described in Exercise 2.1, Step 2 but
@@ -326,17 +343,92 @@ define view entity ZDT187v_[YourInitials]_Airport_Dim
 - expose both
 - and use them as foreign key reference for the AirportFrom and the AirportTo field  
 
-**Step 3)** Optional:  Use the _Connection association to add the flight distance together with the distance unit.
+<details><summary>Hint</summary><p>
+
+```abap
+
+define view entity ZDT187v_[YourInitials]_Flights_Cube
+//...
+{
+      //...
+      @ObjectModel.foreignKey.association: '_AirportFrom'
+      _Connection.AirportFromId,
+
+      @ObjectModel.foreignKey.association: '_AirportTo'
+      _Connection.AirportToId,
+
+      /...
+      _AirportFrom,
+      _AirportTo,
+      /...
+}
+
+```
+</p></details>
+
+
+**Step 4)** Optional:  Sometimes, dimensions can also include measures. To be able to analyse and aggregate them, they need to be part of the cube aswell.<br>
+Use the _Connection association to add the flight distance together with the distance unit as additional measure.
 - As the distance is an amount with a unit, you need to add `@Semantics.quantity.unitOfMeasure: 'DistanceUnit'` to it
 - as well as a suitable aggregation, e.g. `@Aggregation.default: #MAX`
 
-**Step 4)** Optional:  Use the _FlightDate association to add the flight quarter as well as the flight year.
+<details><summary>Hint</summary><p>
+
+```abap
+
+define view entity ZDT187v_[YourInitials]_Flights_Cube
+//...
+{
+      //...
+      _Connection.DistanceUnit,
+
+      @Semantics.quantity.unitOfMeasure: 'DistanceUnit'
+      @Aggregation.default: #MAX
+      _Connection.Distance,
+
+      /...
+}
+
+```
+</p></details>
+
+
+**Step 5)** Optional:  Use the _FlightDate association to add the flight quarter as well as the flight year as dimensions.
 - Add a label e.g. `@EndUserText.label: 'Flight Year'` to the field to give it a readable name
-- Explain the analytical engine that the field is a calendar year by setting `@Semantics.calendar.year: true`
-- Finally set the fields in relation to the Flight Date with `@ObjectModel.value.derivedFrom: [ 'FlightDate' ]`
+- Explain the analytical engine that the field is a calendar year by setting `@Semantics.calendar.year: true`<br>
+  This will enable additional display attributes in the UI later on.
+- Finally set the fields in relation to the Flight Date with `@ObjectModel.value.derivedFrom: [ 'FlightDate' ]`<br>
+  This is again a hint for the analytical engine and is especially important if multiple dates are in your model.
+
+<details><summary>Hint</summary><p>
+
+```abap
+
+define view entity ZDT187v_[YourInitials]_Flights_Cube
+//...
+{
+      //...
+      @EndUserText.label: 'Flight Quarter'
+      @Semantics.calendar.yearQuarter: true
+      @ObjectModel.value.derivedFrom: [ 'FlightDate' ]
+      _FlightDate.YearQuarter,
+
+      @EndUserText.label: 'Flight Year'
+      @Semantics.calendar.year: true
+      @ObjectModel.value.derivedFrom: [ 'FlightDate' ]
+      _FlightDate.CalendarYear,
+      /...
+}
+
+```
+</p></details>
 
 
 ## Summary
+
+You have now learned what measures and dimensions are and how to build an analytical cube view. The cube is the center of the analytical data model and the so called star schema.
+The cube defines the capabilities of your analytical model and draws together all measures and dimensions. Every dimension that you later want to aggregate by needs to be part of the cube view.
+Calculations that have to happen before the aggregation (like the counter that you introduced) have to happen in the cube as well.
 
 <details><summary>Hint: Your final cube view should now look like this</summary><p>
 
@@ -353,8 +445,10 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
   association [0..1] to ZDT187v_[YourInitials]_Connection_Dim as _Connection  on  _Connection.CarrierId    = $projection.AirlineID
                                                                               and _Connection.ConnectionId = $projection.ConnectionID
   association [0..1] to I_CalendarDate                        as _FlightDate  on  _FlightDate.CalendarDate = $projection.FlightDate
+  /* start optional associations */
   association [0..1] to ZDT187v_[YourInitials]_Airport_Dim    as _AirportFrom on  _AirportFrom.AirportId   = $projection.AirportFromId
   association [0..1] to ZDT187v_[YourInitials]_Airport_Dimn   as _AirportTo   on  _AirportTo.AirportId     = $projection.AirportToId
+  /* end optional associations */
 {
       @ObjectModel.foreignKey.association: '_Airline'
   key AirlineID,
@@ -367,6 +461,7 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
 
       PlaneType,
 
+      /* start optional dimensions */
       @ObjectModel.foreignKey.association: '_AirportFrom'
       _Connection.AirportFromId,
 
@@ -382,6 +477,7 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
       @Semantics.calendar.year: true
       @ObjectModel.value.derivedFrom: [ 'FlightDate' ]
       _FlightDate.CalendarYear,
+      /* end optional dimensions */
 
       /* Measures */
 
@@ -402,21 +498,26 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
 
       _Connection.DistanceUnit,
 
+      /* start optional measure */
       @Semantics.quantity.unitOfMeasure: 'DistanceUnit'
-      @Aggregation.default: #SUM
+      @Aggregation.default: #MAX
       _Connection.Distance,
+      /* end optional measure */
 
 
       /* Associations for Dimensions */
 
       _Airline,
+      _Connection,
+
+      /* start optional associations */
       _AirportFrom,
       _AirportTo,
-      _Connection,
-      _Currency
+      _FlightDate
+      /* end optional associations */
 }
 
 ```
 </p></details>
 
-Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
+Continue to - [Exercise 3 - Build a Query ](../ex3/README.md)
