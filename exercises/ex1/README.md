@@ -30,11 +30,14 @@ What you will do in the course of this Hands-On session is focussed on the lower
 
 <br>![](/exercises/ex1/images/02-HandsOnScope.png)
 
-**ABAP CDS:** You will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube.
+**ABAP CDS:** In this hands-on, you will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube.
 
-**INA SERVICE:** The Service Exposure part can also be done in the trial systems, but we do not have multi-dimensional clients yet available as part of the trial experience, therefore this part of the tutorial is optional.
+**INA SERVICE:** The Service Exposure part can theoretically also be done in the trial systems, but as we do not (yet) have multi-dimensional clients 
+available as part of the trial experience, this part will not be covered in the hands-on.<br>
+You may want to check the Tutorial [Develop and Consume Queries on SAP Analytics Cloud](https://developers.sap.com/tutorials/abap-environment-analytics.html) (starts with step 10) or the Devtoberfest 2023 Session [Introduction to Embedded Analytics in ABAP Cloud](https://www.youtube.com/watch?v=2dIqQNnYKjY&list=PLBoQ2iTAoalS9Urg3jcyVjGtxb15Gudfq) (starts at 28:30) on how to expose the query.
 
-**CLIENTS:** To give an impression of how a multi-dimensional client works, we enabled the multi-dimensional preview on the query in the trial system for you. We will use this preview to visualise the model that you built in the same way as it would be possible with an analytical end uer application. We will also link to addition material on how to consume the query in SAP Analytics Cloud.
+**CLIENTS:** As there are no multi-dimensional analytical end user clients available in trial, we enabled the multi-dimensional Fiori preview on the query in the trial system. We will use this preview to visualise the model. It works in the same way as an analytical end user application.<br>
+To see, how the SAC client would look like, you can also check the [Tutorial](https://developers.sap.com/tutorials/abap-environment-analytics.html) (starts with step 16) or the [Devtoberfest Session](https://www.youtube.com/watch?v=2dIqQNnYKjY&list=PLBoQ2iTAoalS9Urg3jcyVjGtxb15Gudfq) (around minute 38).
 
 
 ## Hands-On: Use the FLIGHT Data Model for Analytics
@@ -47,7 +50,7 @@ After completing these steps you will have an understanding about how you can us
 **Step 2)**	Use the "Open Development Object" button to open the /DMO/I_Flight CDS View. <details><summary>Hint</summary><p>![ABAP Development Tools](/exercises/ex1/images/03-ADTDemoFlight.png)</p></details>
 
 **Step 3)** Analytics is about measuring, so we first need to decide what to measure. This figure is called a ***measure*** in analytical terms. It has to be numerical. Typical measures are amounts or quantities, but can also be counts of something. Have a look at the "/DMO/I_Flight" CDS View, find suitable measures & note them down.
-<details><summary>Hint</summary><p>
+<details><summary>Solution</summary><p>
 
  ```abap
  @AccessControl.authorizationCheck: #NOT_REQUIRED
@@ -77,7 +80,7 @@ After completing these steps you will have an understanding about how you can us
 </p></details>
 
 **Step 4)** We need to put measures into a perspective. This perspective is called ***dimension*** in analytical terms.  Have a look at the "/DMO/I_Flight" CDS View, find suitable dimensions & note them down.
-<details><summary>Hint</summary><p>
+<details><summary>Solution</summary><p>
 
  ```abap
  @AccessControl.authorizationCheck: #NOT_REQUIRED
