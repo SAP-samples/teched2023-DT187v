@@ -3,7 +3,7 @@
 Now that we have built the analytical CUBE that defines the capabilities of our analytical model, lets formulate a ***query*** to that model.<br>
 The query defines more or less the initial layout of the table (the table is kind of a pivot table). 
 
-The analytical query view is a `transient view entity' with the `provider contract analytical_query`.
+The analytical query view is a `transient view entity` with the `provider contract analytical_query`.
 
 ## Exercise 3.1: Build the initial Query
 
