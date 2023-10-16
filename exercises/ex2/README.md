@@ -132,7 +132,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
 ```
 </p></details>
 
-## Exercise 2.2 - Prepare the Dimensions
+## Exercise 2.3 - Prepare the Dimensions
 
 The current dimension fields in the cube view are just IDs. In order to be displayed nicely with an according text and with the option to display additional attributes (e.g. the name and city of the airline or the distance or the departure airport of the connection), we need to reference the according dimension views as foreign key references to them. This can not only be done for the key fields of the cube view, but for all dimension fields.
 
@@ -246,7 +246,7 @@ define view entity ZDT187v_[YourInitials]_Connection_Dim
 ```
 </p></details>
 
-## Exercise 2.3 - Use the Dimensions
+## Exercise 2.4 - Use the Dimensions
 
 Back in your cube view, create associations to the dimension views, expose the associations so that they can finally be used as foreign key reference on your dimension fields.
 
@@ -338,7 +338,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
 ```
 </p></details>
 
-## Exercise 2.3 - Optional: Add and use additional Dimensions
+## Exercise 2.5 - Optional: Add and use additional Dimensions
 
 The cube that we have prepared now is ready to be used, but we want to add some additional functionality to it in terms of dimensions that we later can aggregate by.
 Even though we have added dimension views that give us access to additional display attributes like the departure or arrival airport of the destination or the month and quarter of the flight date, we would not be able to use these attributes as criteria to aggregate by. Every field that we want to use as aggregation criteria later on has to be an element of the cube view.
