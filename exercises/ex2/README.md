@@ -7,7 +7,9 @@ A dimension view is a `view entity` with the header annotation `@Analytics.dataC
 
 ## Exercise 2.1 - Build the Basic Cube
 
-**Step 1)** Create your own sub-package like "ZDT187v_[YourInitials]" underneath ZLOCAL and add it to your favorite packages.
+**Step 1)** Create your own sub-package like "ZDT187v_[YourInitials]" underneath ZLOCAL
+- add it to your favorite packages
+- as transport request create "ZDT187v [YourInitials] Flight Hands-On"
 
 **Step 2)** Create a Cube View in your package.
 - Right-click the package and choose<br>
@@ -17,7 +19,7 @@ A dimension view is a `view entity` with the header annotation `@Analytics.dataC
 - Give it the description "Flight Cube"<br>
 - As Referenced Object, use "/DMO/I_FLIGHT"<br>
 - Click "Next"<br>
-- Create a new request "ZDT187v [YourInitials] Flight Hands-On"<br>
+- Use your request from Step 1
 - Click "Next"<br>
 - Use the template "Define a View Entity for a Cube" (Prerequisite is that you downloaded and installed the templates)
 - Click "Finish"
