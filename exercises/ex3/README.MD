@@ -278,6 +278,8 @@ To make use of the new multi-dimensional analysis based preview that we introduc
 - you may have to press F5 to reload in case of an error
 - press 'go' to run the query
 
+<br>![](/exercises/ex3/images/01-MultiDimensionalPreview.png)
+
 **Step 2)** Try changing the layout
 
 **Step 3)** Try changing the display attributes
