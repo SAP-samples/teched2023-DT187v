@@ -25,7 +25,7 @@ A dimension view is a `view entity` with the header annotation `@Analytics.dataC
 - Click "Finish"
 
 **Step 3)** Now that you created your first analytical object in the ABAP Development Tools, right-click it in the project explorer, then choose 'Show in' -> 'Relation Explorer'. This perspective is an alternative view to the project explorer that is dedicated to analytical data models.<br>
-<br>![Relation Explorer](./ex2/images/01-RelationExplorer.png)
+<br>![Relation Explorer](./images/01-RelationExplorer.png)
 
 **Step 4)** As the annotation inheritance is switched off, you need to manually add the annotation `@Semantics.amount.currencyCode` with the reference to the according currency code field to the price field.
 
