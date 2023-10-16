@@ -24,11 +24,17 @@ A dimension view is a `view entity` with the header annotation `@Analytics.dataC
 - Use the template "Define a View Entity for a Cube" (Prerequisite is that you downloaded and installed the templates)
 - Click "Finish"
 
+**Step 3)** As the annotation inheritance is switched off, you need to manually add the annotation `@Semantics.amount.currencyCode` with the reference to the according currency code field to the price field.
+
+**Step 4)** Activating your cube view will raise a warning that your cube does not have an access protection.<br>
+Usually you would define an access protection, a so called 'DCL' for the cube. We do not cover this in this hands-on session and will ignore this warning.
+
 <details><summary>Hint: Your code should now look like this</summary><p>
 
 ```abap
 
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+/* setting the value to #NOT_REQUIRED would remove the warning */
+@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Flight Cube'
 /* Stopping annotation inheritance can help avoiding confusions */
 @Metadata.ignorePropagatedAnnotations: true
@@ -42,7 +48,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube as select from /DMO/I_Flig
  key ConnectionID,
  key FlightDate,
 
- /* you will have an error here */
+ @Semantics.amount.currencyCode: 'CurrencyCode'
  Price,
 
  CurrencyCode,
@@ -67,9 +73,7 @@ Measures in an analytical cube need to be prepared so that an aggregation can ta
 
 **Step 2)** Add the annotation `@Aggregation.default` with a suitabble value (either `#SUM`, `#MIN` or `#MAX`) to your measures.
 
-**Step 3)** Add the annotation `@Semantics.amount.currencyCode` with the reference to the according currency code field to the price field.
-
-**Step 4)** Add an additional measure that will act as a counter for the flights.
+**Step 3)** Add an additional measure that will act as a counter for the flights.
 - The expression to be used for this is `cast (1 as abap.int4) as TotalFlights`
 - The cast makes sure that the resulting data type is able to count to 2.147.483.647 (without the cast it would have been 256 - a 2 byte integer)
 - Give it a suitable aggregation as well
