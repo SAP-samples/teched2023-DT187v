@@ -276,9 +276,23 @@ To make use of the new multi-dimensional analysis based preview that we introduc
   https://[...].hana.ondemand.com/sap/bc/ui2/flp?[...]#AnalyticQuery-preview?query=ZDT187V_[YourInitials]_FLIGHT_QUERY
 - now press enter to load the new URL
 - you may have to press F5 to reload in case of an error
+- press 'go' to run the query
+
+**Step 2)** Try changing the layout
+
+**Step 3)** Try changing the display attributes
+
+**Step 4)** Display the FlightDate in a hierarchical way
+
+**Step 5)** Observe the currency conversion behaviour
+
+**Step 6)** Play ;-)
+
 
 ## Summary
 
-Now that you have analysed the FLIGHT data model, we know which elements are needed to start building our first analytical entity: The cube.
-Continue to - [Exercise 2 - Build a Cube](../ex2/README.md)
+You know got to know modelling
+analytical UIs
+Next read ..
+Hierarchy?
 
