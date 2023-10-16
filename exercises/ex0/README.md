@@ -1,4 +1,4 @@
-# Create an SAP BTP ABAP Environment Trial User
+# Get Started
 
 In this exercise, you will create a trial user in the SAP BTP, ABAP Environment. 
 
