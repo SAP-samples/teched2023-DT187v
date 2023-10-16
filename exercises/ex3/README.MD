@@ -277,24 +277,49 @@ To make use of the new multi-dimensional analysis based preview that we introduc
 - now press enter to load the new URL
 - you may have to press F5 to reload in case of an error
 - press 'go' to run the query
+- check if the result of the layout that you defined in the query meets your expectations
 
 <br>![](/exercises/ex3/images/01-MultiDimensionalPreview.png)
 
-**Step 2)** Try changing the layout
+**Step 2)** Try changing the layout in the app directly:<br>
+- Open the layout side pannel (second icon from top in the right side bar)
+- Remove all attributes except the Airline from the rows
+- Remove all measures except for the occupation rate from the measures structure
+- Move the Departure Airport to the Columns
+- etc.
 
-**Step 3)** Try changing the display attributes
+**Step 3)** Try changing the display properties:<br>
+- Right click the Departure Airport in the UI
+- Select Dimension -> Properties
+- Switch the Desciption on
+- Display Totals
+- Change the sorting
+- etc.
 
-**Step 4)** Display the FlightDate in a hierarchical way
+**Step 4)** Add display attributes:<br>
+- In the sidebar, expand the Flight Date and
+- select Calendar Quarter
 
-**Step 5)** Observe the currency conversion behaviour
+**Step 5)** Observe the currency conversion behaviour:<br>
+- Notice the blue warning on the top left of the table
+- Click it and see that conversion rates are missing
+- Expand the measure structure and de-select all measures except for the price
+- Empty the rows an only take the Flight Date into the rows
+- See that some prices cannot be aggregated as they contain different currencies and no conversion is available<br>
+  These issues are indicated with an '*'. Some dates have flights only in one currency. They will be displayed.
+- Now exchange the Flight Date with the airline and see that the aggregation happens without conversion in the local currency.
 
 **Step 6)** Play ;-)
+
+**Step 7)** Also try modifying the layout in the query view and observe the results in the UI (re-publish, re-load)
 
 
 ## Summary
 
-You know got to know modelling
-analytical UIs
-Next read ..
-Hierarchy?
+You now got to know common analytical modelling practices and learned the most important analytical terms.
+You have an impression on what 'multi-dimensional' analytics means and how analytical UIs behave.
+You are ready to learn more about embedded analytics for example in:
+- [SAP Help on ABAP Cloud Analytics](https://help.sap.com/docs/abap-cloud/abap-analytics/abap-analytics)
+- [Embedded Analytics Overview - Blog Post](https://blogs.sap.com/2022/11/30/embedded-analytics-with-abap-cloud-a-brief-overview-part-1/)
 
+Feel free to use this tutorial as a basis and explore further modeling practices within the trial system. What about e.g. implementing a hierarchy?
