@@ -26,7 +26,8 @@ A dimension view is a `view entity` with the header annotation `@Analytics.dataC
 
 **Step 3)** As the annotation inheritance is switched off, you need to manually add the annotation `@Semantics.amount.currencyCode` with the reference to the according currency code field to the price field.
 
-**Step 4)** Activating your cube view will raise a warning that your cube does not have an access protection.<br>
+**Step 4)** Press SHIFT+F1 to nicely format your sorce code, then activate the view.<br>
+Activating your cube view will raise a warning that your cube does not have an access protection.<br>
 Usually you would define an access protection, a so called 'DCL' for the cube. We do not cover this in this hands-on session and will ignore this warning.
 
 <details><summary>Hint: Your code should now look like this</summary><p>
@@ -124,31 +125,36 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
 ```
 </p></details>
 
-
 ## Exercise 2.2 - Prepare the Dimensions
 
-The current dimension fields are just keys. In order to be displayed nicely with an according text and with the option to display additional attributes (e.g. the name and city of the airline or the distance or the departure airport of the connection), we need to reference the according dimension views as foreign key references to them. This can not only be done for the key fields of the cube view, but for all dimension fields.
+The current dimension fields in the cube view are just IDs. In order to be displayed nicely with an according text and with the option to display additional attributes (e.g. the name and city of the airline or the distance or the departure airport of the connection), we need to reference the according dimension views as foreign key references to them. This can not only be done for the key fields of the cube view, but for all dimension fields.
 
 For the airline and the connection, we do already have associations that we took over from /DMO/I_Flight, but these lead to master data views that are not built for the usage as analytical dimensions. Therefore, we will have to replace them. We will also remove the association to the currency view as we don't want to use it.
 
-You will now create the dimension views where needed, create associations to the dimension views in the cube view, expose the association in the cube and finally use the association as foreign key reference on your dimension fields.
+You will now create the needed dimension views.
 
 | Association Alias | Target | Dimension View |
 | --- | --- | --- |
 | _Airline | /dmo/carrier (table) | ZDT187v_[YourInitials]_Airline_Dim | 
 | _Connection | /dmo/connection (table) | ZDT187v_[YourInitials]_Connection_Dim | 
-| _FlightDate | I_CalendarDate (view) | I_CalendarDate (is defined as analytical dimension already) | 
 
-**Step 1)** Create the dimension view for airline.
+**Step 1)** Create the dimension view for the Airline.
 - Proceed as described in 2.1, step 2 but use the template "Define a View Entity for a Dimension" instead
 - Naming and targets, see table above
-- Alternatively you can copy & adapt from the hint
+
+**Step 2)** Enter the representative key as value of the `@ObjectModel.representativeKey` annotation.<br>
+The representative key is the most specific key of your key fields. In our case there is only one key field: CarrierId.
+
+**Step 3)** Enter the Name field as value of the `@ObjectModel.text.element` annotation.<br>
+This will improve the usability of your analytical application as the airline name can now be displayed along with the airline id.
+
+**Step 4)** Press SHIFT+F1 to nicely format your sorce code. Then activate the view.
 
 <details><summary>Hint: Your ZDT187v_[YourInitials]_Airline_Dim code should now look like this</summary><p>
 
 ```abap
 
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Carrier Dimension'
 @Metadata.ignorePropagatedAnnotations: true
 @Analytics.dataCategory: #DIMENSION
@@ -173,9 +179,33 @@ define view entity ZDT187v_[YourInitials]_Airline_Dim
 ```
 </p></details>
 
-**Step 2)** Now create the dimension views for the connection in the same way.
-- Optional: Check the hint, to see how a readable text named 'Trip' was created for the Carrier ID
-- Optional: See the hint, how foreign key associations can not only be used in cube views, but in dimension views as well
+**Step 5)** Now create the dimension view for the connection in the same way.
+- Set the representative Key to 'ConnectionId'.
+
+**Step 6)** Optional: Check the hint to see how a readable text 'Trip' was created and used as text element for the ConnectionId.
+
+<details><summary>Hint: Calculated text element</summary><p>
+
+```abap
+
+//...
+
+  @ObjectModel.text.element: ['Trip']
+  key connection_id as ConnectionId,
+
+  //...
+  concat(airport_from_id, concat('->', airport_to_id)) as Trip,
+
+//...
+
+```
+</p></details>
+
+**Step 7)** Add an association to the Airline dimension that you created before and use it as foreign key association on the AirlineId.
+- `association [1] to ZDT187v_[YourInitials]_Airline_Dim as _Airline on $projection.CarrierId = _Airline.CarrierId`
+- `@ObjectModel.foreignKey.association: '_Airline'`
+
+**Step 8)** Press SHIFT+F1 to nicely format your sorce code. Then activate the view.
 
 <details><summary>Hint: Your ZDT187v_[YourInitials]_Connection_Dim code should now look like this</summary><p>
 
@@ -192,9 +222,9 @@ define view entity ZDT187v_[YourInitials]_Connection_Dim
   as select from /dmo/connection
   association [1] to ZDT187v_[YourInitials]_Airline_Dim as _Airline on $projection.CarrierId = _Airline.CarrierId
 {
-      @ObjectModel.text.element: ['Trip']
       @ObjectModel.foreignKey.association: '_Airline'
   key carrier_id                                           as CarrierId,
+      @ObjectModel.text.element: ['Trip']
   key connection_id                                        as ConnectionId,
       airport_from_id                                      as AirportFromId,
       airport_to_id                                        as AirportToId,
@@ -209,7 +239,17 @@ define view entity ZDT187v_[YourInitials]_Connection_Dim
 ```
 </p></details>
 
-**Step 3)** Back in your cube view, add an association to the airline dimension you created in step 1.
+## Exercise 2.3 - Use the Dimensions
+
+Back in your cube view, create associations to the dimension views, expose the associations so that they can finally be used as foreign key reference on your dimension fields.
+
+| Association Alias | Dimension View |
+| --- | --- |
+| _Airline | ZDT187v_[YourInitials]_Airline_Dim | 
+| _Connection | ZDT187v_[YourInitials]_Connection_Dim | 
+| _FlightDate | I_CalendarDate | 
+
+**Step 1)** Add an association to the airline dimension you created in Exercise 2.2, Step 1 and expose it as _Airline.
 
 <details><summary>Hint: An association is defined right after the `select from` clause. For the airline dimension, it will look like this</summary><p>
 
@@ -217,23 +257,24 @@ define view entity ZDT187v_[YourInitials]_Connection_Dim
 
 </p></details>
 
-**Step 4)** Add an association to the connection dimension that you created in step 2 in the same way.
+**Step 2)** Add an association to the connection dimension that you created in Exercise 2.2, Step 2 in the same way. Expose it as _Connection.
 <details><summary>Hint: The association to the connection dimension will look like this</summary><p>
 
   `association [0..1] to ZDT187v_[YourInitials]_Connection_Dim as _Connection on _Connection.CarrierId = $projection.AirlineID and _Connection.ConnectionId = $projection.ConnectionID`
 
 </p></details>
 
-**Step 5)** Add an association to the dimension I_CalendarDate in the same way.<br>
-Expose it the association by adding its alias to the element list.
+**Step 3)** Add an association to the dimension I_CalendarDate in the same way. Expose it by adding its alias _FlightDate to the element list.
+
 <details><summary>Hint: The association to I_CalendarDate will look like this</summary><p>
 
   `association [0..1] to I_CalendarDate as _FlightDate on _FlightDate.CalendarDate = $projection.FlightDate`
 
 </p></details>
 
-**Step 6)** Add the foreign key relations to the dimension views to your dimension fields by using the annotation `@ObjectModel.foreignKey.association`.<br>
-As value, choose the alias of the exposed association.
+**Step 4)** Add the associations you just introduced as foreign key relations to your dimension key fields by using the annotation `@ObjectModel.foreignKey.association`. As value, choose the alias of the exposed association.
+
+**Step 5)** Press SHIFT+F1 to nicely format your sorce code. Then activate the view.
 
 <details><summary>Hint: Your cube code should now look like this</summary><p>
 
@@ -290,7 +331,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
 ```
 </p></details>
 
-## Exercise 2.3 - Optional: Add additional Dimensions
+## Exercise 2.3 - Optional: Add and use additional Dimensions
 
 The cube that we have prepared now is ready to be used, but we want to add some additional functionality to it in terms of dimensions that we later can aggregate by.
 Even though we have added dimension views that give us access to additional display attributes like the departure or arrival airport of the destination or the month and quarter of the flight date, we would not be able to use these attributes as criteria to aggregate by. Every field that we want to use as aggregation criteria later on has to be an element of the cube view.
@@ -318,15 +359,17 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
 </p></details>
 
 **Step 2)** Optional: Create an additional dimension view ZDT187v_[YourInitials]_Airport_Dim.
-- Proceed as described in Exercise 2.1, Step 2 but
-- use the template "Define a View Entity for a Dimension" instead
-- and choose /dmo/airport as the referenced data source
+- Proceed as described in Exercise 2.1, Step 2
+- choose /dmo/airport as the referenced data source
+- use the template "Define a View Entity for a Dimension"
+- fill in the representative key and text element
+- Press SHIFT+F1 to nicely format your sorce code. Then activate the view
 
 <details><summary>Hint: Your ZDT187v_[YourInitials]_Airport_Dim code should now look like this</summary><p>
 
 ```abap
 
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Airport Dimension'
 @Metadata.ignorePropagatedAnnotations: true
 @Analytics.internalName: #LOCAL
@@ -359,6 +402,8 @@ define view entity ZDT187v_[YourInitials]_Airport_Dim
 
 define view entity ZDT187v_[YourInitials]_Flights_Cube
 //...
+  association [0..1] to ZDT187v_[YourInitials]_Airport_Dim as _AirportFrom on _AirportFrom.AirportId = $projection.AirportFromId
+  association [0..1] to ZDT187v_[YourInitials]_Airport_Dim as _AirportTo on _AirportTo.AirportId = $projection.AirportToId
 {
       //...
       @ObjectModel.foreignKey.association: '_AirportFrom'
@@ -377,7 +422,7 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
 </p></details>
 
 
-**Step 4)** Optional:  Sometimes, dimensions can also include measures. To be able to analyse and aggregate them, they need to be part of the cube aswell.<br>
+**Step 4)** Optional:  Sometimes, dimensions can also include measures. To be able to analyse and aggregate them, they need to be part of the cube as well.<br>
 Use the _Connection association to add the flight distance together with the distance unit as additional measure.
 - As the distance is an amount with a unit, you need to add `@Semantics.quantity.unitOfMeasure: 'DistanceUnit'` to it
 - as well as a suitable aggregation, e.g. `@Aggregation.default: #MAX`
@@ -433,6 +478,7 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
 ```
 </p></details>
 
+**Step 6)** Press SHIFT+F1 to nicely format your sorce code. Then activate the view.
 
 ## Summary
 
@@ -444,10 +490,11 @@ Calculations that have to happen before the aggregation (like the counter that y
 
 ```abap
 
+@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Flight Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #CUBE
+@Analytics.internalName: #LOCAL
 
 define view entity ZDT187v_[YourInitials]_Flights_Cube
   as select from /DMO/I_Flight
