@@ -1,7 +1,7 @@
 # Exercise 3 - Build an analytical Query
 
-Now that we have built the analytical CUBE that defines the capabilities of our analytical model, lets formulate a ***query*** to that model.<br>
-The query defines more or less the initial layout of the table (the table is kind of a pivot table). 
+Now that we have built the analytical ***cube*** that defines the capabilities of our analytical model, lets formulate a ***query*** to that model.<br>
+The query defines more or less the initial layout of the table (the table is kind of a pivot table) that will be displayed in your analytical application. 
 
 The analytical query view is a `transient view entity` with the `provider contract analytical_query`.
 
@@ -25,7 +25,7 @@ The analytical query view is a `transient view entity` with the `provider contra
 ```abap
 
 @AccessControl.authorizationCheck: #NOT_ALLOWED
-@EndUserText.label: 'Flights Query'
+@EndUserText.label: 'Flight Query'
 
 define transient view entity ZDT187v_[YourInitials]_Flight_Query
 provider contract analytical_query
@@ -36,12 +36,10 @@ as projection on ZDT187v_[YourInitials]_Flight_Cube {
  PlaneType,
  AirportFromId,
  AirportToId,
- FlightType,
- YearMonth,
  YearQuarter,
  CalendarYear,
- CurrencyCode,
  Price,
+ CurrencyCode,
  MaximumSeats,
  OccupiedSeats,
  TotalFlights,
@@ -49,8 +47,9 @@ as projection on ZDT187v_[YourInitials]_Flight_Cube {
  Distance,
  /* Associations */
  _Airline,
+ _AirportFrom,
+ _AirportTo,
  _Connection,
- _Currency,
  _FlightDate
 }
 
@@ -137,7 +136,7 @@ As the price is listed in different currencies, it has to be converted so that i
 ```abap
 
           @AnalyticsDetails.query.axis: #COLUMNS
-          @Semantics.amount.currencyCode: 'EUR'
+          @Semantics.amount.currencyCode: 'CurrencyCode'
           @Aggregation.default: #FORMULA
           currency_conversion (
             amount             => curr_to_decfloat_amount( Price ),
@@ -177,14 +176,18 @@ virtual GlobalCurrency : abap.cuky( 5 ),
 ```
 </p></details>
 
-**Step 6)** Preview the query by right-clicking the query in the explorer and selecting 'Preview'.
+**Step 6)** Format & activate your analytical query view.
+
+**Step 7)** Preview the query by right-clicking the query in the explorer and selecting 'Preview'.<br>
+Be patient. It's just a free trial system ;-)
 
 ## Exercise 3.3 - Working with the Multi-Dimensional Analysis
 
 **Step 1)** Preview the query with the multi-dimensional analysis.<br>
 To make use of the new multi-dimensional analysis based preview that we introduced to the trial systems, proceed as follows:
 - open the regular preview (opens in the browser)
-- now modify the URL and change the semantic oaction from 'AnalyticQuery-preview' to 'AnalyticQuery-previewInDeveloperMode'
+- now modify the URL and change the semantic oaction from 'AnalyticQuery-preview' to 'AnalyticQuery-previewInDeveloperMode'<br>
+  https://[...].hana.ondemand.com/sap/bc/ui2/flp?[...]#AnalyticQuery-preview?query=2CZDT187V_AR_FLIGHT_QUERY&cdsName=ZDT187V_AR_FLIGHT_QUERY
 - set the value of 'query=2C...' to 'query=...' 
 - now press enter to load the new URL
 
