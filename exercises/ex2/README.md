@@ -24,9 +24,12 @@ A dimension view is a `view entity` with the header annotation `@Analytics.dataC
 - Use the template "Define a View Entity for a Cube" (Prerequisite is that you downloaded and installed the templates)
 - Click "Finish"
 
-**Step 3)** As the annotation inheritance is switched off, you need to manually add the annotation `@Semantics.amount.currencyCode` with the reference to the according currency code field to the price field.
+**Step 3)** Now that you created your first analytical object in the ABAP Development Tools, right-click it in the project explorer, then choose 'Show in' -> 'Relation Explorer'. This perspective is an alternative view to the project explorer that is dedicated to analytical data models.<br>
+<br>![Relation Explorer](./ex2/images/01-RelationExplorer.png)
 
-**Step 4)** Press SHIFT+F1 to nicely format your sorce code, then activate the view.<br>
+**Step 4)** As the annotation inheritance is switched off, you need to manually add the annotation `@Semantics.amount.currencyCode` with the reference to the according currency code field to the price field.
+
+**Step 5)** Press SHIFT+F1 to nicely format your sorce code, then activate the view.<br>
 Activating your cube view will raise a warning that your cube does not have an access protection.<br>
 Usually you would define an access protection, a so called 'DCL' for the cube. We do not cover this in this hands-on session and will ignore this warning.
 
