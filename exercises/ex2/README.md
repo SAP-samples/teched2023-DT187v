@@ -2,6 +2,9 @@
 
 In this exercise, we will create a cube. The cube is the heart of our analytical model. It draws together all required measures & dimensions and defines the functionality of the analytical model.
 
+The cube view is a `view entity` with the header annotation `@Analytics.dataCategory: #CUBE`.
+A dimension view is a `view entity` with the header annotation `@Analytics.dataCategory: #DIMENSION`.
+
 ## Exercise 2.1 - Build the Basic Cube
 
 **Step 1)** Create your own sub-package like "ZDT187v_[YourInitials]" underneath ZLOCAL and add it to your favorite packages.
@@ -117,9 +120,9 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
 
 ## Exercise 2.2 - Prepare the Dimensions
 
-Th current dimensions are bare keys now. In order to be displayed nicely with an according text and with the option to display additional attributes (e.g. the name and city of the airline or the distance or the departure airport of the connection), we need to reference according dimension views as foreign key references to them. This can not only be done for the key fields, but for all measures. For the key fields it is required though.
+The current dimension fields are just keys. In order to be displayed nicely with an according text and with the option to display additional attributes (e.g. the name and city of the airline or the distance or the departure airport of the connection), we need to reference the according dimension views as foreign key references to them. This can not only be done for the key fields of the cube view, but for all dimension fields.
 
-For the airline and the connectio, we do already have associations that we took over from /DMO/I_Flight, but these lead to master data views that are not built for the usage as analytical dimensions. Therefore, we will have to replace them. We will also remove the association to the currency view as we don't want to use it.
+For the airline and the connection, we do already have associations that we took over from /DMO/I_Flight, but these lead to master data views that are not built for the usage as analytical dimensions. Therefore, we will have to replace them. We will also remove the association to the currency view as we don't want to use it.
 
 You will now create the dimension views where needed, create associations to the dimension views in the cube view, expose the association in the cube and finally use the association as foreign key reference on your dimension fields.
 
