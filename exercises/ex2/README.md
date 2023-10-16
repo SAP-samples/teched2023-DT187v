@@ -30,11 +30,11 @@ A dimension view is a `view entity` with the header annotation `@Analytics.dataC
 
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Flight Cube'
+/* Stopping annotation inheritance can help avoiding confusions */
 @Metadata.ignorePropagatedAnnotations: true
 
- /* This header annotation makes the view entity an analytical cube */
+/* This header annotation makes the view entity an analytical cube */
 @Analytics.dataCategory: #CUBE
-
 @Analytics.internalName: #LOCAL
 
 define view entity ZDT187v_[YourInitials]_Flight_Cube as select from /DMO/I_Flight {
@@ -42,7 +42,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube as select from /DMO/I_Flig
  key ConnectionID,
  key FlightDate,
 
- /* with an error here */
+ /* you will have an error here */
  Price,
 
  CurrencyCode,
@@ -53,6 +53,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube as select from /DMO/I_Flig
  /* Associations */
  _Airline,
  _Connection
+ _Currency
 }
 
 ```
