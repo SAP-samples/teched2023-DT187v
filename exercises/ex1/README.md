@@ -24,7 +24,7 @@ Let's understand how Analytics is embedded in ABAP Cloud.
 
 ## Read: Scope of the Tutorial
 
-TLDR: [Skip the reading and start the hands-on](#the-flight-data-model)
+TL;DR [Skip the reading and start the hands-on](#the-flight-data-model)
 
 What you will do in the course of this Hands-On session is focussed on the lower level of this diagram:
 
