@@ -1,7 +1,9 @@
-# Exercise 3 - Build an analytical Cube
+# Exercise 3 - Build an analytical Query
 
 Now that we have built the analytical CUBE that defines the capabilities of our analytical model, lets formulate a ***query*** to that model.<br>
 The query defines more or less the initial layout of the table (the table is kind of a pivot table). 
+
+The analytical query view is a `transient view entity' with the `provider contract analytical_query`.
 
 ## Exercise 3.1: Build the initial Query
 
@@ -56,11 +58,10 @@ as projection on ZDT187v_[YourInitials]_Flight_Cube {
 </p></details>
 
 **Step 2)** Fix the errors by removing the 'key' keyword. A query does not need them. Unfortunately this cannot be noted in templates.<br>
-Note that the resulting view is a `transient ciew entity' with the `provider contract analytical_query`.
 
 **Step 3)** Define the layout by assigning the axis as well as the existence of totals for the dimension.<br>
 For the axis, the annotation `` is used.<br>
-For the totals, we use ``.
+For the totals, we use ``.<br>
 You can freely decide if you write the annotations either in a flat or on object style. In a standard layout, dimensions are on the row axis and the measures are on the column axis.<br>
 If you do not assign a dimension to an axis, the measures will be aggregated according to the layout.<br>
 Example: If you have the price in the columns and only add the airline to the rows (either by removing other dimensions or by assigning them to the `#FREE` axis), then the maximum price of all flights that are conducted by the airline will be the result of the aggregation (assuming the default aggregation of the price is set to `#MAX`).
