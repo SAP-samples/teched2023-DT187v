@@ -1,4 +1,4 @@
-# Exercise 2 - Build a Cube
+# Exercise 2 - Build a Cube with Dimensions
 
 In this exercise, we will create a cube. The cube is the heart of our analytical model. It draws together all required measures & dimensions and defines the functionality of the analytical model.
 
