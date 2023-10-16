@@ -16,7 +16,10 @@ If you already have an ABAP Environment Trial, please make sure to get a new one
 
 ## Download and install analytical ABAP CDS Templates
 
-Download and install the [templates](./download/analytical_templates.xml) in your Eclipse ABAP Development Tools.
+Download and install the [templates](./download/analytical_templates.xml) in your Eclipse ABAP Development Tools.<br>
+Open the preferences and look for 'templates'.<br>
+In Data Definition Templates choose 'Import'.<br>
+<br>![this is how](./images/01-InstallTemplates.png)
 
 ## Summary
 
