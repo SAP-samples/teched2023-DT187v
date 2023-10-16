@@ -15,36 +15,27 @@ This hands-on session introduces attendees to building an analytical data model 
 ## Requirements
 
 The requirements to follow the exercises in this repository are that you:
-1) get a new trial account for the BTP ABAP environment (please make sure to get a new one if your account is older than XXXXXX)
+1) get a new trial account for the BTP ABAP environment (please make sure to get a new one if your account is older than 2023-10-15)
 2) have the latest version of the ABAP development tools installed
 3) have downloaded and installed the templates for analytical CDS views
 
-
 ## Exercises
 
-Fulfill the prerequisites
-
-Get to know your data and plan your analytical model
-
-Build the heart of the model - the Cube
-
-Build Dimensions
-
-Build a Hierarchy to be used in a Dimension
-
-Prepare your analytical UI by building a Query
-
-Preview the Query in a Multi-Dimensional way
-
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
-
 - [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
-- [Exercise 2 - Second Exercise Description](exercises/ex2/)
-    - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
-    - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
+- [Exercise 1 - Introduction to Analytics in ABAP Cloud](exercises/ex1/)
+    - [Exercise 1.1 - Read: Embedded Analytics in ABAP Cloud](exercises/ex1/README.md#exercise-11---read-embedded-analytics-in-abap-cloud)
+    - [Exercise 1.2 - Read: Scope of the Tutorial](exercises/ex1#exercise-12-sub-exercise-2-description)
+    - [Exercise 1.3 - Hands-On: Use the FLIGHT Data Model for Analytics](exercises/ex1#exercise-12-sub-exercise-2-description)
+- [Exercise 2 - Build a Cube with Dimensions](exercises/ex2/)
+    - [Exercise 2.1 - Build the basic Cube](exercises/ex2/README.md#exercise-21---build-the-basic-cube)
+    - [Exercise 2.2 - Prepare the Measures](exercises/ex2/README.md#exercise-22---prepare-the-measures)
+    - [Exercise 2.3 - Prepare the Dimensions](exercises/ex2/README.md#exercise-23---prepare-the-dimensions)
+    - [Exercise 2.4 - Use the Dimensions](exercises/ex2/README.md#exercise-24---use-the-dimensions)
+    - [Exercise 2.5 - Optional - Add and use additional DImensions](exercises/ex2/README.md#exercise-25---optional-add-and-use-additional-dimensions)
+- [Exercise 3 - Build the analytical Query](exercises/ex3/)
+    - [Exercise 2.1 - Build the initial query](exercises/ex3/README.MD#exercise-31-build-the-initial-query)
+    - [Exercise 2.2 - Prepare the Measures](exercises/ex3/README.MD#exercise-32---prepare-the-measures)
+    - [Exercise 2.3 - Working Multi-Dimensional](exercises/ex3/README.MD#exercise-33---working-with-the-multi-dimensional-analysis)
 
 
 **IMPORTANT**
