@@ -577,4 +577,4 @@ define view entity ZDT187v_[YourInitials]_Flights_Cube
 ```
 </p></details>
 
-Continue to - [Exercise 3 - Build a Query ](../ex3/README.md)
+Continue to - [Exercise 3 - Build a Query ](../ex3/README.MD)
