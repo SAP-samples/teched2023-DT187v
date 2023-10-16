@@ -14,6 +14,10 @@ If you already have an ABAP Environment Trial, please make sure to get a new one
 
 [Create an SAP BTP ABAP Environment Trial User](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html)
 
+## Download and install analytical ABAP CDS Templates
+
+
+
 ## Summary
 
 Now that you have onboarded to the SAP BTP Trial, ABAP Environment you can continue to - [Exercise 1 - Introduction to Analytics in ABAP Cloud](../ex1/README.md)
