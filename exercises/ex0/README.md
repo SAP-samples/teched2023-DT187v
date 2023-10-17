@@ -16,11 +16,25 @@ If you already have an ABAP Environment Trial, please make sure to get a new one
 
 ## Download and install analytical ABAP CDS Templates
 
-Download and install the [templates](./download/analytical_templates.xml) in your Eclipse ABAP Development Tools.<br>
-Open the preferences and look for 'templates'.<br>
-In Data Definition Templates choose 'Import'.<br>
-<br>![this is how](./images/01-InstallTemplates.png)
+As a first task we will start to import templates that we will use in this workshop to create Analytical CDS views such as dimension views, cubes and queries.
 
+**Step 1)** Click on the following link to display the file [analytical_templates.xml](https://raw.githubusercontent.com/SAP-samples/teched2023-DT187v/exercises/ex0/download/analytical_templates.xml)
+
+**Step 2)**  Right-click on the browser window and save the content as an xml-file called **analytical_templates.xml**.
+
+   > **Hint for Mac Users**   
+   > For Mac users it seems only to be possible to save the file content as **.txt** file. 
+   > You can then rename the file after you have saved it and replace the extension **.txt** with the extension **.xml**.
+   
+**Step 3)** In ABAP Decelopment Tools, open the preferences and search for 'templates'.
+
+**Step 4)** In Data Definition Templates choose 'Import'.<br>
+   <details><summary>Click to expand!</summary><p>
+
+    ![this is how](./images/01-InstallTemplates.png)
+  
+   </p></details>
+  
 ## Summary
 
 Now that you have onboarded to the SAP BTP Trial, ABAP Environment you can continue to - [Exercise 1 - Introduction to Analytics in ABAP Cloud](../ex1/README.md)
