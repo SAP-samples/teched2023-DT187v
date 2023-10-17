@@ -24,7 +24,7 @@ As a first task we will start to import templates that we will use in this works
 
 **Step 3)** In ABAP Development Tools, open the preferences and search for 'templates'.
 
-**Step 4)** In Data Definition Templates choose 'Import'.<br>
+**Step 4)** In Data Definition Templates choose 'Import', then choose your file analytical_templates.xml.<br>
    <details><summary>Click to expand!</summary><p>
 
 ![this is how](./images/01-InstallTemplates.png)
