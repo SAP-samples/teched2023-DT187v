@@ -31,7 +31,7 @@ As a first task we will start to import templates that we will use in this works
 **Step 4)** In Data Definition Templates choose 'Import'.<br>
    <details><summary>Click to expand!</summary><p>
 
-    ![this is how](./images/01-InstallTemplates.png)
+![this is how](./images/01-InstallTemplates.png)
   
    </p></details>
   
