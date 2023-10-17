@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="com.sap.adt.cds.ddl.ui.template.context.type.view.creation" deleted="false" description="Define a View Entity for a Cube" enabled="true" name="Z_defineViewEntityForCube">@AccessControl.authorizationCheck: #CHECK
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="com.sap.adt.cds.ddl.ui.template.context.type.view.creation" deleted="false" description="Define View Entity for a Cube" enabled="true" name="Z_defineViewEntityForCube">@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: '${ddl_source_description}'
 @Metadata.ignorePropagatedAnnotations: true
 @Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
 
 define view entity ${ddl_source_name_editable} as select from ${data_source_name} {
- ${data_source_elements}${cursor}
-}</template>
-<template autoinsert="false" context="com.sap.adt.cds.ddl.ui.template.context.type.view.creation" deleted="false" description="Define a View Entity for a Dimension" enabled="true" name="Z_defineViewEntityForDimension">@AccessControl.authorizationCheck: #CHECK
+    ${data_source_elements}${cursor}
+}
+</template>
+<template autoinsert="false" context="com.sap.adt.cds.ddl.ui.template.context.type.view.creation" deleted="false" description="Define View Entity for a Dimension" enabled="true" name="Z_defineViewEntityForDimension">@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: '${ddl_source_description}'
 @Metadata.ignorePropagatedAnnotations: true
 @Analytics.dataCategory: #DIMENSION
@@ -16,13 +17,17 @@ define view entity ${ddl_source_name_editable} as select from ${data_source_name
 
 define view entity ${ddl_source_name_editable} as select from ${data_source_name} {
     @ObjectModel.text.element: ['${textElement}']
- ${data_source_elements}${cursor}
-}</template>
-<template autoinsert="false" context="com.sap.adt.cds.ddl.ui.template.context.type.view.creation" deleted="false" description="Define View Entity for Query" enabled="true" name="Z_defineViewEntityForQuery">@AccessControl.authorizationCheck: #CHECK
+    ${data_source_elements}${cursor}
+}
+</template>
+<template autoinsert="false" context="com.sap.adt.cds.ddl.ui.template.context.type.view.creation" deleted="false" description="Define View Entity for Query" enabled="true" name="Z_defineViewEntityForQuery">@AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: '${ddl_source_description}'
-@Analytics.query: true
 
-define view entity ${ddl_source_name_editable} as select from ${data_source_name} {
- ${data_source_elements}${cursor}
-}</template>
+define transient view entity ${ddl_source_name_editable}
+provider contract analytical_query
+as projection on ${data_source_name} {
+    //remove key attributes!
+    ${data_source_elements}${cursor}
+}
+</template>
 </templates>
