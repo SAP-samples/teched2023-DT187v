@@ -18,7 +18,7 @@ If you already have an ABAP Environment Trial, please make sure to get a new one
 
 As a first task we will start to import templates that we will use in this workshop to create Analytical CDS views such as dimension views, cubes and queries.
 
-**Step 1)** Click on the following link to display the file [analytical_templates.xml](https://raw.githubusercontent.com/SAP-samples/teched2023-DT187v/exercises/ex0/download/analytical_templates.xml)
+**Step 1)** Click on the following link to display the file [analytical_templates.xml](https://raw.githubusercontent.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex0/download/analytical_templates.xml)
 
 **Step 2)**  Right-click on the browser window and save the content as an xml-file called **analytical_templates.xml**.
 
