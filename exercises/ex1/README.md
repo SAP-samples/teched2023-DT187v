@@ -47,7 +47,7 @@ After completing these steps you will have an understanding about how you can us
 
 **Step 1)**	Open ABAP Development Tools and open your trial project.
 
-**Step 2)**	Use the "Open Development Object" button to open the /DMO/I_Flight CDS View. <details><summary>Hint</summary><p>![ABAP Development Tools](/exercises/ex1/images/03-ADTDemoFlight.png)</p></details>
+**Step 2)**	Use the "Open Development Object" button to open the /DMO/I_Flight CDS View. <details><summary>Hint: How it looks like in ADT</summary><p>![ABAP Development Tools](/exercises/ex1/images/03-ADTDemoFlight.png)</p></details>
 
 **Step 3)** Analytics is about measuring, so we first need to decide what to measure. This figure is called a ***measure*** in analytical terms. It has to be numerical. Typical measures are amounts or quantities, but can also be counts of something. Have a look at the "/DMO/I_Flight" CDS View, find suitable measures & note them down.
 <details><summary>Solution</summary><p>
