@@ -176,9 +176,9 @@ virtual GlobalCurrency : abap.cuky( 5 ),
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Flight Query'
 
-define transient view entity ZDT187v_AR_Flight_Query
+define transient view entity ZDT187v_[YourInitials]_Flight_Query
   provider contract analytical_query
-  as projection on ZDT187v_AR_Flight_Cube
+  as projection on ZDT187v_[YourInitials]_Flight_Cube
 {
           /* Dimensions */
 
