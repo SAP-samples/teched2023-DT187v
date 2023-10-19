@@ -20,7 +20,14 @@ As a first task we will start to import templates that we will use in this works
 
 **Step 1)** Click on the following link to display the file [analytical_templates.xml](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex0/download/analytical_templates.xml)
 
-**Step 2)** Copy the content and save it as an xml-file called **analytical_templates.xml**.
+**Step 2)** Right-click the 'RAW' button, select 'save link as' and enter **analytical_templates.xml** (keep the XML file extension if you are asked).<br>
+Alternatively, you can copy the content and save it as an xml-file **analytical_templates.xml** with a text editor of your choice.
+
+<details><summary>Click to expand!</summary><p>
+
+![this is how](./images/02-RawFileDownload.png)
+  
+   </p></details>
 
 **Step 3)** In ABAP Development Tools, open the preferences and search for 'templates'.
 
