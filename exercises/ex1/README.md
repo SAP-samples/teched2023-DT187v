@@ -11,7 +11,7 @@ Even if you already have an ABAP Environment Trial, **please get a new instance*
 
 ## Exercise 1.1 - Read: Embedded Analytics in ABAP Cloud
 
-TLDR: [Skip the reading and start the hands-on](#the-flight-data-model)
+TLDR: [Skip the reading and start the hands-on](#exercise-13---hands-on-use-the-flight-data-model-for-analytics)
 
 Let's understand how Analytics is embedded in ABAP Cloud. 
 <br>![](/exercises/ex1/images/01-EmbeddedAnalyticsInABAPCloud.png)
@@ -24,7 +24,7 @@ Let's understand how Analytics is embedded in ABAP Cloud.
 
 ## Exercise 1.2 - Read: Scope of the Tutorial
 
-TL;DR [Skip the reading and start the hands-on](#the-flight-data-model)
+TL;DR [Skip the reading and start the hands-on](#exercise-13---hands-on-use-the-flight-data-model-for-analytics)
 
 What you will do in the course of this Hands-On session is focussed on the lower level of this diagram:
 
