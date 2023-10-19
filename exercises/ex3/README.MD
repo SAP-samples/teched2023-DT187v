@@ -59,8 +59,8 @@ as projection on ZDT187v_[YourInitials]_Flight_Cube {
 **Step 2)** Fix the errors by removing the 'key' keyword. A query does not need them. Unfortunately this cannot be noted in templates.<br>
 
 **Step 3)** Define the layout by assigning the axis as well as the existence of totals for the dimension.<br>
-For the axis, the annotation `` is used.<br>
-For the totals, we use ``.<br>
+For the axis, the annotation `@AnalyticsDetails.query.axis` is used.<br>
+For the totals, we use `@AnalyticsDetails.query.axis`.<br>
 In a standard layout, dimensions are on the row axis and the measures are on the column axis.<br>
 If you assign a dimension to a different axis or remove it, the measures will be aggregated according to the layout.<br>
 Example: If you have the price in the columns and only add the airline to the rows (either by removing other dimensions or by assigning them to the `#FREE` axis), then the maximum price of all flights that are conducted by the airline will be the result of the aggregation (assuming the default aggregation of the price is set to `#MAX`).
@@ -80,7 +80,7 @@ AirlineID
 
 /* Flat Style */
 @AnalyticsDetails.query.axis: #ROWS
-@AnalyticsDetails.query.totals: #HIDE
+@AnalyticsDetails.query.axis: #HIDE
 AirlineID
 
 ```
