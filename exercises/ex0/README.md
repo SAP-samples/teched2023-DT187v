@@ -23,7 +23,7 @@ As a first task we will start to import templates that we will use in this works
 **Step 2)** Click the 'Download raw file' button to download **analytical_templates.xml**.
 <details><summary>Click to expand!</summary><p>
 
-![this is how](./images/02-RawFileDownload.png)
+![this is how](./images/02-DownloadRawFile.png)
   
    </p></details>
 
