@@ -94,7 +94,7 @@ If you assign different axes to the measures, the first one will win. For readab
 
 **Step 1)** Add the `@AnalyticsDetails.query.axis: #COLUMNS` annotation to all measures.
 
-**Step 2)** Calculate the occupation rate as a percentage and add it as new (calculated) measure to the query.<br>
+**Step 2)** Add a new (calculated) measure to the query by calculating the occupation rate as a percentage using the MaximumSeats and OccupiedSeats fields.<br>
 Remember: Measures that need to be calculated after the aggregation have to be part of the query.
 
 <details><summary>Hint: See how it looks like</summary><p>
