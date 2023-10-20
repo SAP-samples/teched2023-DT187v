@@ -318,8 +318,16 @@ To make use of the new multi-dimensional analysis based preview that we introduc
 
 You now got to know common analytical modelling practices and learned the most important analytical terms.
 You have an impression on what 'multi-dimensional' analytics means and how analytical UIs behave.
+
+### What's next?
+
 You are ready to learn more about embedded analytics for example in:
-- [SAP Help on ABAP Cloud Analytics](https://help.sap.com/docs/abap-cloud/abap-analytics/abap-analytics)
-- [Embedded Analytics Overview - Blog Post](https://blogs.sap.com/2022/11/30/embedded-analytics-with-abap-cloud-a-brief-overview-part-1/)
+- The [SAP Help on ABAP Cloud Analytics](https://help.sap.com/docs/abap-cloud/abap-analytics/abap-analytics)
+- The [Embedded Analytics Overview - Blog Post](https://blogs.sap.com/2022/11/30/embedded-analytics-with-abap-cloud-a-brief-overview-part-1/) by [Fabian Fellhauer](https://people.sap.com/fabianfellhauer)
 
 Feel free to use this tutorial as a basis and explore further modeling practices within the trial system. What about e.g. implementing a hierarchy?
+
+You may also want to check the transactional side of the story? Then head to the session [Use ABAP Cloud for developer extensibility](https://github.com/SAP-samples/teched2023-DT182v) from [Andrè Fischer](https://people.sap.com/andre.fischer).
+
+
+
