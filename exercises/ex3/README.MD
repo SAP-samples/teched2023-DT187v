@@ -5,7 +5,7 @@ The query defines more or less the initial layout of the table (the table is kin
 
 The analytical query view is a `transient view entity` with the `provider contract analytical_query`.
 
-## Exercise 3.1: Build the initial Query
+## Exercise 3.1 - Build the initial Query
 
 **Step 1)** Create a Query View in your package.
 - Right-click the package and choose<br>
