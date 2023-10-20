@@ -20,6 +20,8 @@ The analytical query view is a `transient view entity` with the `provider contra
 - Use the template "Define a View Entity for a Query" (Prerequisite is that you downloaded and installed the templates)
 - Click "Finish"
 
+**Step 2)** Fix the errors by removing the 'key' keyword. A query does not need them. Unfortunately this cannot be noted in templates.<br>
+
 <details><summary>Hint: Your code should now look like this</summary><p>
 
 ```abap
@@ -30,9 +32,9 @@ The analytical query view is a `transient view entity` with the `provider contra
 define transient view entity ZDT187v_[YourInitials]_Flight_Query
 provider contract analytical_query
 as projection on ZDT187v_[YourInitials]_Flight_Cube {
- key AirlineID,
- key ConnectionID,
- key FlightDate,
+ AirlineID,
+ ConnectionID,
+ FlightDate,
  PlaneType,
  AirportFromId,
  AirportToId,
@@ -55,8 +57,6 @@ as projection on ZDT187v_[YourInitials]_Flight_Cube {
 
 ```
 </p></details>
-
-**Step 2)** Fix the errors by removing the 'key' keyword. A query does not need them. Unfortunately this cannot be noted in templates.<br>
 
 **Step 3)** Define the layout by assigning the axis as well as the existence of totals for the dimension.<br>
 For the axis, the annotation `@AnalyticsDetails.query.axis` is used.<br>
