@@ -28,7 +28,7 @@ TL;DR [Skip the reading and start the hands-on](#exercise-13---hands-on-use-the-
 
 What you will do in the course of this Hands-On session is focussed on the lower level of this diagram:
 
-<br>![](/exercises/ex1/images/02-HandsOnScope.png)
+![](/exercises/ex1/images/02-HandsOnScope.png)
 
 **ABAP CDS:** In this hands-on, you will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube.
 
