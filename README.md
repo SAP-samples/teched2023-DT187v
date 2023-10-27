@@ -9,8 +9,11 @@ This repository contains the material for the SAP TechEd 2023 session called DT1
 
 ## Overview
 
-This hands-on session introduces attendees to building an analytical data model with ABAP Cloud that can be consumed by analytical applications like e.g., SAP Analytics Cloud. You will learn how to build analytical applications with the ABAP Cloud programming language using ABAP core data services, analytical providers and business services in the ABAP development tools. ABAP Cloud is the common development model for building cloud-ready business applications, services, and extensions side by side on SAP BTP, ABAP environment and on-stack on SAP S/4HANA, in the cloud and on premise. Gain information, ask questions, and then complete the exercises at your own pace.
+This hands-on session introduces attendees to building an analytical data model with ABAP Cloud that can be consumed by analytical applications like e.g., SAP Analytics Cloud. You will learn how to build analytical applications with the ABAP Cloud programming language using ABAP core data services, analytical providers and business services in the ABAP development tools.
 
+Specifically, you will build an analytical application, that uses SAP's Flight Demo Model. You will design the data model and the application in order to analyze the occupation of flights from different perspectives.
+
+While building the data model, you will be introduced to analytical terms like measures, dimensions, cubes and queries as well as to the general idea of analytical data modelling with the star schema.
 
 ## Requirements
 
