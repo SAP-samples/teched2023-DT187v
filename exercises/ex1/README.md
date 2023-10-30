@@ -9,20 +9,7 @@ Make sure you have completed the prerequisites from [Exercise 0 - Get an ABAP En
 
 Even if you already have an ABAP Environment Trial, **please get a new instance** as the trial systems have been updated for the TechEd 2023 sessions!
 
-## Exercise 1.1 - Read: Embedded Analytics in ABAP Cloud
-
-TLDR: [Skip the reading and start the hands-on](#exercise-13---hands-on-use-the-flight-data-model-for-analytics)
-
-Let's understand how Analytics is embedded in ABAP Cloud. 
-<br>![](/exercises/ex1/images/01-EmbeddedAnalyticsInABAPCloud.png)
-1. SAP HANAs column store is vital for analytical data processing
-2. Analytical data modelling is done ABAP Cloud style via ABAP CDS entities
-3. Service Exposure via the multi-dimensional InA protocol is included in ABAP Cloud
-4. The developer tooling needed for Analytics is included in the ABAP development tools
-5. Analytical Fiori UIs that are part of ABAP Cloud are in preparation
-6. SAP Analytics Cloud "SAC" can be used as client with multi-dimensional capabilities
-
-## Exercise 1.2 - Read: Scope of the Tutorial
+## Exercise 1.1 - Read: Scope of the Tutorial
 
 TL;DR [Skip the reading and start the hands-on](#exercise-13---hands-on-use-the-flight-data-model-for-analytics)
 
@@ -30,14 +17,34 @@ What you will do in the course of this Hands-On session is focussed on the lower
 
 ![](/exercises/ex1/images/02-HandsOnScope.png)
 
-**ABAP CDS:** In this hands-on, you will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube.
+**ABAP CDS:** In this hands-on, you will mainly build an analytical data model on top of the transactional model that consists of a multi-dimensional cube view, according analytical dimension views as well as an analytical query that reads from the cube. You will enhance the model step by step wit additional features. This will introduce you to 
+- basic analytical ideas and terms (measures & dimensions, cubes & queries)
+- analytical data modelling principles (the star schema)
+- the meaning of “multi-dimensional” analytics
 
-**INA SERVICE:** The Service Exposure part can theoretically also be done in the trial systems, but as we do not (yet) have multi-dimensional clients 
-available as part of the trial experience, this part will not be covered in the hands-on.<br>
+**INA SERVICE:** In contrary to the transactional-focussed OData protocol, the InA protocol is tailored to the needs of analytical applications, communicating with the analytical engine. The service exposure as such works in the same way as for transactional services and can theoretically also be done in the trial systems, but as we do not (yet) have multi-dimensional end-user clients 
+available as part of the trial experience, the service exposure part is not needed in the hands-on.<br>
 You may want to check the Tutorial [Develop and Consume Queries on SAP Analytics Cloud](https://developers.sap.com/tutorials/abap-environment-analytics.html) (starts with step 10) or the Devtoberfest 2023 Session [Introduction to Embedded Analytics in ABAP Cloud](https://www.youtube.com/watch?v=2dIqQNnYKjY&list=PLBoQ2iTAoalS9Urg3jcyVjGtxb15Gudfq) (starts at 28:30) on how to expose the query.
 
-**CLIENTS:** As there are no multi-dimensional analytical end user clients available in trial, we enabled the multi-dimensional Fiori preview on the query in the trial system. We will use this preview to visualise the model. It works in the same way as an analytical end user application.<br>
+
+**CLIENTS:** As there are no multi-dimensional analytical end user clients available in trial, we enabled the multi-dimensional Fiori preview on the query in the trial system. We will use this preview to visualise the model. It works in the same way as an analytical end user application. In the hands-on, you will start the preview and will be introduced to its features. This will deepen the understanding you gained during the modeling exercise.<br>
 To see, how the SAC client would look like, you can also check the [Tutorial](https://developers.sap.com/tutorials/abap-environment-analytics.html) (starts with step 16) or the [Devtoberfest Session](https://www.youtube.com/watch?v=2dIqQNnYKjY&list=PLBoQ2iTAoalS9Urg3jcyVjGtxb15Gudfq) (around minute 38).
+
+
+## Exercise 1.2 - Read: Embedded Analytics in ABAP Cloud
+
+TL;DR [Skip the reading and start the hands-on](#exercise-13---hands-on-use-the-flight-data-model-for-analytics)
+
+Let's understand how Analytics is ***embedded*** in ABAP Cloud. 
+<br>![](/exercises/ex1/images/01-EmbeddedAnalyticsInABAPCloud.png)
+1. SAP HANAs column store is vital for analytical data processing
+2. Analytical data modelling is done ABAP Cloud style via ABAP CDS entities
+3. Service Exposure via the multi-dimensional InA protocol is included in ABAP Cloud and so is the analytical engine, the according multi-dimensional runtime
+5. The developer tooling needed for Analytics is included in the ABAP development tools
+6. Analytical Fiori UIs that are part of ABAP Cloud are in preparation
+7. SAP Analytics Cloud "SAC" can be used as client with multi-dimensional capabilities
+
+So everything that is needed to build real analytical applications end-to-end is ***embedded*** in the ABAP Cloud programming model as well as in every ABAP Cloud based system
 
 
 ## Exercise 1.3 - Hands-On: Use the FLIGHT Data Model for Analytics
