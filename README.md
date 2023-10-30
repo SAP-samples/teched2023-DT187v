@@ -61,8 +61,9 @@ Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribut
 Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## How to obtain support
-
-Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
+Support for the content in this repository is available during the respective [Jump-Start Session: Build Analytical Applications with ABAP Cloud](https://go3.events.sap.com/sapteched/virtual/2023/reg/flow/sap/sapteched23/catalog/page/catalog/session/1693019886304001sNN4) at Friday, November 3, 2023, 7pm CET, for which this content has been designed.<br>
+Otherwise, you may request support via the [Issues](../../issues) tab.<br>
+A [SAP Help page for Embedded Analytics in ABAP Cloud](https://help.sap.com/docs/abap-cloud/abap-analytics/abap-analytics) is available as well. 
 
 ## License
 Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
