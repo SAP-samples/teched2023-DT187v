@@ -13,7 +13,8 @@ This hands-on session introduces attendees to building an analytical data model 
 
 Specifically, you will build an analytical application, that uses SAP's Flight Demo Model. You will design the data model and the application in order to analyze the occupation of flights from different perspectives.
 
-While building the data model, you will be introduced to analytical terms like measures, dimensions, cubes and queries as well as to the general idea of analytical data modelling with the star schema.
+While building the data model, you will be introduced to analytical terms like measures, dimensions, cubes and queries as well as to the general idea of analytical data modelling with the star schema.<br>
+Previewing the analytical application and exploring its features will deepen this understanding.
 
 ## Requirements
 
