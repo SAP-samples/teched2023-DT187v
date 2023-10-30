@@ -32,8 +32,8 @@ The hard [prerequisites](https://github.com/SAP-samples/teched2023-DT187v/blob/m
     - [Install Analytical CDS Templates](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex0/README.md#download-and-install-analytical-abap-cds-templates)
 
 - [Exercise 1 - Introduction to Analytics in ABAP Cloud](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex1/README.md)
-    - [Exercise 1.1 - Read: Embedded Analytics in ABAP Cloud](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex1/README.md#exercise-11---read-embedded-analytics-in-abap-cloud)
-    - [Exercise 1.2 - Read: Scope of the Tutorial](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex1/README.md#exercise-12---read-scope-of-the-tutorial)
+    - [Exercise 1.1 - Read: Scope of the Tutorial](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex1/README.md#exercise-11---read-scope-of-the-tutorial)
+    - [Exercise 1.2 - Read: Embedded Analytics in ABAP Cloud](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex1/README.md#exercise-12---read-embedded-analytics-in-abap-cloud)
     - [Exercise 1.3 - Hands-On: Use the FLIGHT Data Model for Analytics](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex1/README.md#exercise-13---hands-on-use-the-flight-data-model-for-analytics)
     - [Exercise 1 - Summary](https://github.com/SAP-samples/teched2023-DT187v/blob/main/exercises/ex1/README.md#summary)
 
