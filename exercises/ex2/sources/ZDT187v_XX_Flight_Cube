@@ -12,7 +12,7 @@ define view entity ZDT187v_[YourInitials]_Flight_Cube
   association [0..1] to I_CalendarDate                        as _FlightDate  on  _FlightDate.CalendarDate = $projection.FlightDate
   /* start optional associations */
   association [0..1] to ZDT187v_[YourInitials]_Airport_Dim    as _AirportFrom on  _AirportFrom.AirportId   = $projection.AirportFromId
-  association [0..1] to ZDT187v_[YourInitials]_Airport_Dimn   as _AirportTo   on  _AirportTo.AirportId     = $projection.AirportToId
+  association [0..1] to ZDT187v_[YourInitials]_Airport_Dim    as _AirportTo   on  _AirportTo.AirportId     = $projection.AirportToId
   /* end optional associations */
 {
       @ObjectModel.foreignKey.association: '_Airline'
