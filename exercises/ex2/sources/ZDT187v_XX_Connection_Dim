@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Connection Dimension'
 @Metadata.ignorePropagatedAnnotations: true
 @Analytics.dataCategory: #DIMENSION
