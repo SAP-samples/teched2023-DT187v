@@ -325,6 +325,8 @@ You are ready to learn more about embedded analytics for example in:
 - The [SAP Help on ABAP Cloud Analytics](https://help.sap.com/docs/abap-cloud/abap-analytics/abap-analytics)
 - The [Embedded Analytics Overview - Blog Post](https://blogs.sap.com/2022/11/30/embedded-analytics-with-abap-cloud-a-brief-overview-part-1/) by [Fabian Fellhauer](https://people.sap.com/fabianfellhauer)
 
+Further links can be found in the [Jump-Start Session slides](/exercises/ex3/images/231018_Embedded-Analytics-for-TechEd_Ext.pdf).
+
 Feel free to use this tutorial as a basis and explore further modeling practices within the trial system. What about e.g. implementing a hierarchy?
 
 You may also want to check the transactional side of the story? Then head to the session [Use ABAP Cloud for developer extensibility](https://github.com/SAP-samples/teched2023-DT182v) from [Andrè Fischer](https://people.sap.com/andre.fischer).
