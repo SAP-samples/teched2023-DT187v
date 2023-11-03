@@ -14,6 +14,10 @@ If you already have an ABAP Environment Trial, please make sure to get a new one
 
 [Create an SAP BTP ABAP Environment Trial User](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html)
 
+[Install ABAP Development Tools](https://developers.sap.com/tutorials/abap-install-adt.html)
+
+[Create ABAP Cloud Project](https://developers.sap.com/tutorials/abap-environment-create-abap-cloud-project.html)
+
 ## Download and install analytical ABAP CDS Templates
 
 As a first task we will start to import templates that we will use in this workshop to create Analytical CDS views such as dimension views, cubes and queries.
