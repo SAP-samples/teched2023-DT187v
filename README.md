@@ -6,6 +6,7 @@
 
 This repository contains the material for the SAP TechEd 2023 session called DT187v - Build Analytical Applications with ABAP Cloud.
 Visit the [Jump-Start Session: Build Analytical Applications with ABAP Cloud](https://go3.events.sap.com/sapteched/virtual/2023/reg/flow/sap/sapteched23/catalog/page/catalog/session/1693019886304001sNN4) at Friday, November 3, 2023, 7pm CET, to get an introduction.
+The [slides of the Jump-Start Session](/exercises/ex3/images/231018_Embedded-Analytics-for-TechEd_Ext.pdf) are available in this GitHub repository as well.
 
 
 ## Overview
