@@ -329,5 +329,5 @@ Feel free to use this tutorial as a basis and explore further modeling practices
 
 You may also want to check the transactional side of the story? Then head to the session [Use ABAP Cloud for developer extensibility](https://github.com/SAP-samples/teched2023-DT182v) from [Andrè Fischer](https://people.sap.com/andre.fischer).
 
-The [slides of the Jump-Start Session](/exercises/ex3/images/231018_Embedded-Analytics-for-TechEd-Ext.pdf) are available in this GitHub repository as well.
+The [slides of the Jump-Start Session](/exercises/ex3/images/231018_Embedded-Analytics-for-TechEd_Ext.pdf) are available in this GitHub repository as well.
 
