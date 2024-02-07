@@ -10,7 +10,7 @@ Watch the recording of the [Jump-Start Session: Build Analytical Applications wi
 
 ## Overview
 
-This hands-on session introduces attendees to building an analytical data model with ABAP Cloud that can be consumed by analytical applications like e.g., SAP Analytics Cloud. You will learn how to build analytical applications with the ABAP Cloud programming language using ABAP core data services, analytical providers and business services in the ABAP development tools.
+This hands-on tutorial introduces attendees to building an analytical data model with ABAP Cloud that can be consumed by analytical applications like e.g., SAP Analytics Cloud. You will learn how to build analytical applications with the ABAP Cloud programming language using ABAP core data services, analytical providers and business services in the ABAP development tools.
 
 Specifically, you will build an analytical application, that uses SAP's Flight Demo Model. You will design the data model and the application in order to analyze the occupation of flights from different perspectives.
 
