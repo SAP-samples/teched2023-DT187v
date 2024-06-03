@@ -267,16 +267,9 @@ Be patient. It's just a free trial system ;-)
 
 **Step 1)** Preview the query with the multi-dimensional analysis.<br>
 To make use of the new multi-dimensional analysis based preview that we introduced to the trial systems, proceed as follows:
-- open the regular preview (opens in the browser)
-- now modify the URL in the following way:<br>
-  - change the semantic oaction from 'AnalyticQuery-preview' to 'AnalyticQuery-previewInDeveloperMode'<br>
-  - remove the '2C' after query=
-  - completely remove the &cdsName=... part at the end
-- the result should look like this<br>
-  https://[...].hana.ondemand.com/sap/bc/ui2/flp?[...]#AnalyticQuery-preview?query=ZDT187V_[YourInitials]_FLIGHT_QUERY
-- now press enter to load the new URL
-- you may have to press F5 to reload in case of an error
-- press 'go' to run the query
+- the preview for analytical queries opens in the browser
+- in case of an error, press F5 to reload
+- you may need to press 'go' to run the query
 - check if the result of the layout that you defined in the query meets your expectations
 
 <br>![](/exercises/ex3/images/01-MultiDimensionalPreview.png)
