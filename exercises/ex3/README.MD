@@ -318,6 +318,8 @@ You are ready to learn more about embedded analytics for example in:
 - The [SAP Help on ABAP Cloud Analytics](https://help.sap.com/docs/abap-cloud/abap-analytics/abap-analytics)
 - The [Embedded Analytics Overview - Blog Post](https://blogs.sap.com/2022/11/30/embedded-analytics-with-abap-cloud-a-brief-overview-part-1/) by [Fabian Fellhauer](https://people.sap.com/fabianfellhauer)
 
+Take a look at the [ABAP Platform Analytical Modeling Examples](https://github.com/SAP-samples/abap-platform-analytics-data-modeling) repository. It contains a complete analytical model based on the flight reference scenario as well as loads of additional analytical queries that showcase different features of Embedded Analytics in the ABAP Platform.
+
 Further links can be found in the [Jump-Start Session slides](/exercises/ex3/images/231018_Embedded-Analytics-for-TechEd_Ext.pdf).
 
 Feel free to use this tutorial as a basis and explore further modeling practices within the trial system. What about e.g. implementing a hierarchy?
